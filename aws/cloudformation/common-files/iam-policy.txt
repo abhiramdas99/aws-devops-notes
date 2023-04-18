@@ -1,0 +1,33 @@
+/*****************************************************************************
+IAM policy the allow the aws lambda to published SNS topic for email alert.
+Also this policy allow the lambda to write the logs in aws cloud watch.
+
+To used this policy , you need to create policy in aws then past the code as
+json formater
+****************************************************************************/
+
+
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sns:Publish"
+      ],
+      "Resource": [
+        "arn:aws:sns:ap-south-1:991987285726:intelipaat-assignment-topic"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    }
+  ]
+}
