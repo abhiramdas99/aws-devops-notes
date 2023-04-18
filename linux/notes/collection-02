@@ -1,0 +1,64 @@
+LINUX COMMAND COLLECTION 02 
+==============================================================
+Q : What is port no of ssh, and you modified it ?
+Q : What are the type of file in linux OS ?
+Q : Can you please explain file of /etc/passwd ? 
+Q : How to enforce a user to reset password at next login ?
+Q : How to check kernel  Version of Linux OS ?
+Ans:  #uname -a
+      #uname -r 
+      #uname -v
+       
+Q : How to check the IP address of a server ?
+Ans : #ifconfig  / # ip r   
+      # hostname -I // show only ip address of host 
+      
+Q : How to check default gateway of server ?
+Ans : # route -vn 
+
+Q : what is ulimit ? 
+Ans : # ulimit // its tell how many file you can open 
+      # yum install lsof -y 
+      # lsof   // same command as ulimit, i.e list out all open file 
+      
+Q : Disk spae is still full even after deleting a file of 5GB ? 
+Ans : # df -Th  //check the space utlization 
+      # lsof | grep  deleted   // you can check what file are deleted 
+  
+Q : Sudo bash vs sudo su - ?
+Ans : # sudo su -   // I login to home directory of root user 
+      # sudo bash  // means I login as root but my current directly not change
+      
+Q : What is use of /home/user/.bash_profile ?
+Ans : 
+
+Q : How to create alias of a command ? 
+Q : What is user of ~/. bashrc ? 
+Q : What is curl ?
+Ans :#curl http://xxxxx.com  // to get the contnet of any website  
+
+Q : What is wget ? 
+Ans : # yum install wget-y 
+      # wget www.google.com  //it download the file 
+      
+Q : What is file name to manage dns entires of linux ?
+Ans : #  vim /etc/resolv.conf   
+
+Q : what is use of /etc/hosts entries ?
+Ans : # 
+
+Q :  What is the use of W command ?
+Ans : To check the acctive user connected with server. what are the current load of server
+      #w  /  # who  / # whoami 
+
+Q : How to kill all process of any user ? 
+
+Q : How to mount disk permanently ? 
+Q : How to check hidden files and how to create it ? 
+Q : How to start process at start up time ? 
+Q : What does nameless directory represent?
+Q : How do you manage ser ices on a server ?
+Q : How to block the root account ? 
+Ans : 
+
+    
