@@ -1,1 +1,21 @@
-dfdfdfdf
+# cicd-pipeline-jenkins-java-maven
+Continous Integration Continous Delivery Project based on tools - Java , Maven , GitHub
+==================================================================================================
+Step 1 : Ready the  Jenkins server :<br>
+     -> Ready the installtion script ( specific to ubuntu machine) <a target='_blank' href='https://raw.githubusercontent.com/abhiramdas99/cicd-pipeline-github-jenkins-java-maven/main/install-jenkins-maven.sh'> link </a>
+     -> Lunch the ubuntu machine  (ami: ubuntu 20.4)
+     -> Create keypair  as *.pem file 
+     -> allow port no 22  and 8080 
+     
+Step 2 : Ready the Jenkins web console 
+     -> unklock jenkins as per the instruction
+     -> install sugested plugin
+     -> set the password 
+     
+ Step 3 : Install some manual plugin 
+     -> dashboard > plugin manager 
+     -> Click on available and search "Pipeline Utility Steps" and check mark on that
+     -> next search "Pipeline Maven Integration" and check mark on that, 
+     -> Then click on "Install without restart" 
+     
+Now Jenkins server is ready to serve
