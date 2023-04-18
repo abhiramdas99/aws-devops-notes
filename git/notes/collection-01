@@ -1,0 +1,43 @@
+Git > Collection01
+=================================================
+
+1) How will you know in Git if a branch has been already merged into master ? 
+Ans : 
+# git branch --merged  // lists branches merged into the head
+# git brnach --merged naster // lists branches merged into to master
+# git branch --no-merged //list branches that have not been mergged
+
+By dedfault the coammand is applied to local branches. 
+# use flag -a for both local and remote branches 
+# use flag -r for only remote branches
+or 
+#git merge-base // commaand to find the  latet common commit between the two branches
+
+2) How can ou bring a new feature in the main branch ? 
+Ans: 
+To do that, you just use the git merge and git pull command 
+
+3) How can i delete the branch from both locally or remotely ? 
+Ans : 
+#git branch -d branch-name  // use -D to forcefully delete the branch
+#git push origin --delete branch-name   //this command is delete the branch remotely. it may affect the ohter collaborators
+
+4) What is difference betweeen git remote and git clone ?
+# git remote is used to manage the connection to remote repositories from your local repository . 
+# git clone is used to create a local copy of a remote repository in your machine
+
+5) How  can you fix a broken commit ? 
+Ans:
+#git commit --amend //The command will be open a editor and allow modified the commit and save  it
+
+6)  Why  its advisable to create an additional commit rather than amending an exitig commit ?
+Ans :
+Actually the amend opertion will be destroy the start that was prevmously save in t coomit
+
+7) How do yu find a list of files that has changed in a particaular commit ?
+# git diff-tree -r {hash}   // As per the commit hash you can fnd the corresponding files
+
+8) One of your teamates accidentally deleted a branch, and has already pushed the chnages to the central git repo. 
+   There are no ther git repos , and none of your other teamates had a local copy, How would you recorver the branch ? 
+# git reflog  
+# git checkout -b branch-name // then checkout as  a new branch
