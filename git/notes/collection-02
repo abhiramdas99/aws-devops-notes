@@ -1,0 +1,188 @@
+ THE CODE BELOW IS EXPLAINING HOW TO START YOUR 1ST PROJECT
+ BY "GIT INIT" IN DEVELOPER MACHINS
+ 
+-----------------------------------------------------------------------------
+
+# mkdir myapp  // create your project
+# cd myapp // navigate to that folder  
+# git init // initialize the git by this command 
+# ll -al   //to see all the hiden folder . Means now can able to see a .git folder. Means git is successfully initialized 
+  note that by default the master branch will be created when you initialized te project in local machine
+  
+Lets create a file i.e index.html in this directory-
+# echo "its my 1st testing file" > index.html
+
+ Note  that, there are 4 logical area in git . You can also say that, its a git architecture .
+ 1) working area / unstaging area  2) staging area  3) local repository 4) remote repository 
+
+Lets run the following below command , 
+# git status  // this command will return  one thing, either  "untrack file lsit " or "upto date" message 
+
+Lets activate the tracking on this file 
+# git add .  //you can add the specific filename in the place of dot  . Dot means all files and  folders will be add to track
+             //now the file index.html in staging area 
+ 
+Topic: Lets commit above changes 
+----------------------------------------------
+ COMMAND:
+  # git commit -m "my 1st commit" 
+ IMPORTANT NOTES:
+  -> on run this command git will commit the update to local repository
+  -> it return commit-id with 7 alphanumeric digit , number of new line insertion in files
+  -> if you not set your identity, it will prompt  you to set it first 
+ QUESTION & ANSWER: 
+  Q1) Can we directly commit without add the changes done previously ? 
+  A1) Yes, but you need to combinely invoke the command 
+   # git commit -a -m " my combine commad to directly add and commit " 
+  
+
+
+Lets set  your identity 
+# git config --global user.name abhiramdas99 // its best, if you create a git account in git hub and provide name accordngly
+# git config --global user.email abhiramdas99@gmail.com //its best , if you give that email id as per your git hub account 
+
+Lets check the git logs
+# git log
+ -> it rerun the log with - commit head and pointing to  branch like master for our case 
+ -> to see the log in single line you can use the folloing command 
+ # git log -oneline 
+ 
+ 
+Lets you have done many alteration and deletion the content within the files, how you indentifing the change ? 
+#git diff   // it show differentiate of previous content and new content  for all files 
+#git diff <filename> its show the changes of contents 
+-> note that, git diff command is working only in working-directory, once move to staging area, its not show the difference 
+
+Lets restore the the last changes of one my files
+#git checkout -- index.html 
+--> discard the last changes
+-> this command is only work in working directory ,if there is some difference in conent
+   means once move to staging area , we cant restore the previous changes in this way 
+--> remember once this command you cant revert back 
+
+Now suppose we have done the changes and move the file from working directory to staging area,
+then how can i find the changes in staging area?
+# git diff --staged index.html 
+--> It will show the difference only for staging area 
+
+
+---------------------------------------------------------
+TOPIC : REVERT BACK FROM STAGING AEA TO WORKING DIRECTORY 
+---------------------------------------------------------
+ Now suppose,I want to back everything from staging area to working directory,
+ then can i do that ? 
+ COMMAND :
+   # git reset HEAD index.html 
+   # git checkout -- index.html 
+ NOTES:
+   -> The 1st command is reset the head, means bring the thing to working directory 
+   -> The 2nd command is reset the contents within the file in working directory 
+ QUESTION AND ANSWER:
+  Q1) suppose you have done  5 commit, now your head  is pointing to latest commit id, means 5th number 
+      But you wan to remove all the commit after 2 commit and want to move the header pointer to 2nd commit ?
+      # git reset --soft <2nd number commit id)  // this command reset everything back to the staging area 
+      # git reset --mixed <2nd number commit id  // this command reset everything  back to the working directory 
+      Means you need to add  and re-comit the latest update again to staging area then local repo
+      # git reset --hard <2nd number commit id>  // this command  reset upto given commit id in all stage 
+      
+      
+---------------------------------------------------------------
+TOPIC : REVERT BACK IN LOCAL REPO
+---------------------------------------------------------------
+ Suppose you have  commited to the local repo by mistake and you want revert back 
+ COMMAND :
+   # git log --oneline  
+   # git revert xfxdfdfd 
+ NOTES:
+   -> The 1st command is retrive the log history  and copy the commit id 
+   -> The 2nd command is revert back to workikng directory  based on comit id 
+   -> Remember it can't revert to working directory, it just rever back within 
+      remote repo
+
+---------------------------------------------------------------
+TOPIC : CHECK THE FILES ARE COMMITED TO LOCAL REPO
+---------------------------------------------------------------
+# git ls-files //it will only show the commited file to local repo
+
+---------------------------------------------------------------
+TOPIC : CHECK COMPLETE HISTORY AS PER COMMIT ID 
+---------------------------------------------------------------
+Suppose you have done many commit and you want some more detail on one partical commit 
+ COMMAND :
+   # git show <commit-id>
+ NOTES:
+   -> It will show all the activities that done the p
+   -> The 2nd command is revert back to workikng directory  based on comit id 
+       
+    
+---------------------------------------------------------------
+TOPIC : CONCEPT OF RM AND HOW IT WORK
+---------------------------------------------------------------
+Suppose  you have done the commited a file wrongly ,you dont want that file in 
+local repository 
+COMMAND :
+ # rm --cached <filenname> // this command completely delete the file in local repo
+ 
+
+---------------------------------------------------------------
+TOPIC : ABOUT BRANCHES(BASIC)
+---------------------------------------------------------------
+Suppose you are working for ecommerce project and it consist of many modules sub modules 
+and different type of environment like  dev, QA, production, then how can  you manage all 
+these thing. Then concept is came here , called branch. For above examaple I can create 
+dev-login, dev-dashboard, dev-account , env-dev, env-qa, env-prod
+
+---------------------------------------------------------------
+TOPIC : BASIC WORK WITH BRANCH
+---------------------------------------------------------------
+# git branch // this command show the default branch name where are working 
+             // the *<master>, the star means you are in default branch
+# git branch <dev-login> 
+             // it careate new branch name (copy of master branch)
+# git checkout <dev-login> 
+             // switch to your new branh
+             // also it make the new branch as default branch
+ # git checkout -b <new-branch-name> 
+             // it create new branch as well as checkout to new branh            
+ $ git merge de-login master  
+             // this command merge the files from current branch to master branch 
+ $ git branch -D  dev-login 
+             // remember 1st you need to checkout the branches which you want to delete
+             
+
+---------------------------------------------------------------
+TOPIC : BRANCH MERGE
+---------------------------------------------------------------
+1) Suppose  you are in feature branch and do some modifiacation in index.html , and you want to
+   merge it to master branch the you can do it
+   # git checkout master  //1st you need to checkout to master branch 
+   # git merge feature-branch master  // this command merge every thing from feature-branch 
+  to master branch 
+2) suppose you are in feature branch and done many commit, now you want to only one specific commit t be 
+   merge to master branch, then you can  you do it ?
+   # git cherry-pick commited <commmit-id>
+   
+  
+  
+---------------------------------------------------------------
+TOPIC : NORMAL COMMIT VS MERGE VS REBASE 
+---------------------------------------------------------------
+You can understand the exact different in following explaination 
+  step 1: 
+    master =  C1----C2---[C3]  //  means we have done some change in c3
+    feature=  C1----C2---C3----[C4]----[C5]  //means we done some new commit i.e C4 and C5
+    
+  step 2: # git merge feature master  //now we run merge command to merge the feature wto master
+   master = C1----C2-----C4------C5-------[C3=C3] 
+   
+   step 3: # git rebase feature master // now re-arrang all commit or re-inedexing  
+   master = C1----C2-----C3-------C4------C5
+   --> remember , commit will be vanished on use of rebase command
+   
+
+
+
+
+
+
+
