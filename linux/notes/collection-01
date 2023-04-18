@@ -1,0 +1,75 @@
+
+
+LINUX COMMAND COLLECTION-01 
+====================================================================================
+
+Q : How will you change default user id  value in linux ?
+   Explaination :
+      suppose I create a new user by the command # adduser abhiram . Now I want to check the id of this user then command is - # id abhiram 
+      suppose id for abhiram is 1001, but I want to  change the series, means if i create next user it will start from 10000, 10001 , 10002
+Answer : 
+   Open the file   # vim /etc/login.def  and search UID_MAX  and set this value 
+         
+Q : Root# rm -rt /tmp/text gives error operation not permitted. Reason ? 
+Answer : 
+   Actually there is a chattr cammand we are using to make the file immutable mean the command is : # chattr +i fiename.extension
+
+Q : /etc/hosts (Which RPM is responsible for creating this file ) ?
+Answer : 
+   Actually there is a way to check the RPM of any file . the command is : rpm -qf /etc/hosts
+ 
+Q : What is diference between RPM and YUM ?
+Answer : 
+         RPM =  Redhat Package manager and YUM =  Yellow Dog Updater, modifier is an open source package mangemnt applciation 
+        that uses the RPM package manager in backend. 
+        Important thing is  YUM is very easy means we give only package its automatically download all dependency 
+        #rpm -ivh httpdxxxxxx.rpm // it install rpm only , you need to manually install the dependency the command is 
+        #rpm -qPR httpdxxxxxx.rpm
+        
+Q : What is difference between Hard and soft link ?
+Answer : 
+   Basically i create a hard link of a file ,then if we delete the original file. Still the data within the linked file will be safe. and the link will not broken. 
+   But if creat a softlinek, once delete the orignal file, the link will be broken, and the conent of the fill we be gone.
+   Command to create a Hard link- # ln <source file> <new link file >   // use ll and l -i to see the  file 
+   Command to create a softw link -# ln -s <source file> <new link file>  
+   More differnt is  count and i node will be increase 
+   
+Q : Which command want to see the mound point 
+Answer : 
+   #df -Th   // use to see the mound point 
+   
+Q : What is sticky bit ?
+Answer : 
+   its basically a perminssion to a folder , the only the owner and the root can delete the folder . Its always implemented to folder / directory 
+   # drwxrwxrwt  tmp  = means the t is stand for sticky bit 
+         
+Q : How will you check open port on linux Server ? 
+Answer : 
+   # netstat -tunlp   /// to only see the active port 
+ 
+Q : How will you check open port on remote server ( whout login )
+Answer : 
+   # For that  you need to install the  package i.e nmap
+   # nmap -A 8.8.8.8
+   
+   
+Q : your site is throwing 500 erro, how will you start troubleshooting ? Q : How iwll you start troubleshooting i your site is down ? 
+Answer : 
+   1) Check the serverlog, for the different server, logs are in different location
+   2) check the file or directory permission
+   3) Check the .htaccess file in proper location 
+   4) Disable any plugin ,that recently installed or upgrade
+   5) check database connction, and IOPS
+   6) Contact Host priver, dns server, firewall port and rule if its run from internal domain
+   for future precauson, need to keep maintaine the backup or snapsot of database as well as application servdr
+   
+Q : How will you create space on disk if its showing 100% used?
+Answer : 
+   # df -Th // this command is show how much percentage the file system has been used 
+   # du -sh * // this command is show the directory size 
+   
+Q : What is package of sar command and what does it do ? 
+Answer : 
+   # yum install ssysstat - y  // its stand for - system Activity Reorter. its a system monitoring tool that is commonly used in unix-bases operating system. . 
+   it collects, repports and analyzes system activity data, such as cpu usage , memory usage, disk I/oo nnetwork Trafic , and more . 
+   
