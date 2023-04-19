@@ -1,6 +1,20 @@
-# rename the folder
-mv <directoryname> <new name>
+# rename the folder -
+  mv <directoryname> <new name>
 
-# check the remote mounting information 
-cat /etc/fstab
+# create a network mount  from windows machine with linux machine
+# it ask for the password after enter the command  -
+  sudo mount -t cifs //192.168.1.33/abhiram  /mnt/share/backup     
 
+# check the remote mounting information (parament mount) 
+  cat /etc/fstab
+
+# Listout all soft mount -
+  mount -t cifs
+
+# command to unmount the folder - 
+  unmount -f <linux machien folder>  <NAS+Windows shared folder>
+  
+# how to add /modify cron job 
+  sudo crontab -e
+  
+  
