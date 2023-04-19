@@ -17,4 +17,5 @@
 # how to add /modify cron job 
   sudo crontab -e
   
-  
+#  how to give protective permission to file 
+  chmod 400 <filename>
