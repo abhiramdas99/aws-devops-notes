@@ -1,2 +1,6 @@
 # rename the folder
-mv directoryname <new name >
+mv <directoryname> <new name>
+
+# check the remote mounting information 
+cat /etc/fstab
+
