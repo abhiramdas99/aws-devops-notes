@@ -1,6 +1,21 @@
 # rename the folder -
   mv <directoryname> <new name>
 
+# create directory within directory 
+mkdir -p /folder1/subfolder1
+
+# remove  directory 
+rm -r <directory name > 
+
+# download the package  with specific directory. The folder tmp will be automatically created 
+  wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.74/bin/apache-tomcat-9.0.74.tar.gz -P tmp/
+
+# extract the ziped package 
+tar -xf apache-tomcat-9.0.74.tar.gz
+
+# extract the zipped package within specifc folder 
+tar -xf apache-tomcat-9.0.74.tar.gz -C tmp/
+
 # create a network mount  from windows machine with linux machine
 # it ask for the password after enter the command  -
   sudo mount -t cifs //192.168.1.33/abhiram  /mnt/share/backup     
@@ -19,3 +34,4 @@
   
 #  how to give protective permission to file 
   chmod 400 <filename>
+
