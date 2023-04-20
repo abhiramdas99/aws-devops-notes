@@ -1,0 +1,51 @@
+complete pipeline - continous Integration  (aws cloud based)
+============================================================
+1) Create common keypair 
+2) create security group  - jenkinsSG
+	-> allow public to connect jenkins by port no 22
+	-> allow public trafic to connect jenkins by port no 8080 
+3) create security group - nexusSG
+	-> allow public traffic  nexus server by port no 22, 8081 
+4) create security grup  - sonarSG	
+    -> allow 22, 80
+
+5) lunch ec2 instanace 
+	Note that, please refer the below link for user data script 
+	https://github.com/devopshydclub/vprofile-project
+	branch -> ci-jenkins
+	
+	 For Jenkins server
+	 ------------------------
+	-> name tag : JenkinsServer
+	-> AMI should be ubuntu 20.4 LTS stable version free tier 
+	-> note that, jenkin will be hang on t2.micro so you select t2.small
+	-> attach the kepair that you created . 
+	-> Security group : jenkinsSG
+	-> user data  : jenkins-setup.sh ( in github)
+	
+	For NexusServer server
+	--------------------------
+	-> name tag : NexusServer
+	-> AMI : Amazon linux 2 ami 
+	-> instnace type : t2.medium 
+	-> keypair : same 
+	-> Security grup : nexusSG 
+	-> user data  : nexus-setup.sh ( in github)
+	
+	For Sonar server
+	------------------------------
+	-> name tag : SonarServer
+	-> AMI : Ubuntu server 18.4 LTS  free tier
+	-> instnace type : t2.medium 
+	-> keypair : same 
+	-> Security grup : sonarSG 
+	-> user data  : sonar-setup.sh ( in github)
+    
+6) Configure the server 
+	For Jenkins 
+	---------------------------------
+	
+	
+
+	
+        
