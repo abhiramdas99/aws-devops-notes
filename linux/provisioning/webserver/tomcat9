@@ -1,0 +1,19 @@
+1) Ready Machine in Cloud (optional)
+-------------------------------------------------------
+  create a security group and allow 8080 and ssh 
+  create keypair
+  create a ec2 based on ubuntu stable version. For me it 20.4  
+  and attach all the above thing 
+  
+ 2) open the terminal and use the following comand 
+ ------------------------------------------------------
+ sudo apt update -y   //command to update the machin e
+ sudo apt install openjdk-17-jdk  //command to install the java 17 
+ export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64 // create environmental variable
+ wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.74/bin/apache-tomcat-9.0.74.tar.gz   //download the package 
+ tar -xf apache-tomcat-9.0.74.tar.gz  //unzip
+ mv apache-tomcat-9.0.74 /opt/tomcat/  //move all to /opt/tomcat/
+ sudo chown -R ubuntu: /opt/tomcat/  
+ sudo sh -c 'chmod +x /opt/tomcat/bin/*.sh'  
+ cd  /opt/tomcat/bin
+ ./catalina.sh start
